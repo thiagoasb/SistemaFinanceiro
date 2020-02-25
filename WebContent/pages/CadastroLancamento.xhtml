@@ -24,16 +24,28 @@
 					 	itemValue="#{tipoLancamento}" />
 				</h:selectOneRadio>
 				
+				<h:outputLabel value="Pessoa" />
+				<h:selectOneMenu 
+						value="#{cadastroLancamentoBean.lancamento.pessoa}"
+						label="Pessoa">
+					<f:selectItem 
+						itemLabel="Selecione" noSelectionOption="true" />
+					<f:selectItems
+						value="#{cadastroLancamentoBean.todasPessoas}" 
+						var="pessoa" itemValue="#{pessoa}"
+						itemLabel="#{pessoa.nome}"/>
+				</h:selectOneMenu>
+				
 				<h:outputLabel value="Descrição" />
 				<h:inputText size="60" 
 					value="#{cadastroLancamentoBean.lancamento.descricao}"
 					label="Descrição" />
+				
 				<h:outputLabel value="Valor" />
 				<h:inputText size="12"
 						value="#{cadastroLancamentoBean.lancamento.valor}"
 						label="Valor">
-					<f:convertNumber locale="pt_BR" maxFractionDigits="2"
-						minFractionDigits="2" />
+					<f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2" />
 				</h:inputText>
 				
 				<h:outputLabel value="Data de vencimento" />

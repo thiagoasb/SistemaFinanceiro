@@ -3,6 +3,7 @@ package com.financeiro.beans;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -28,6 +29,7 @@ public class CadastroLancamentoBean implements Serializable{
 	private Lancamento lancamento = new Lancamento();
 	private List<Pessoa> todasPessoas;
 	
+	@PostConstruct
 	public void prepararCadastro() {
 		EntityManager manager = JpaUtil.getEntityManager();
 		try {
@@ -69,6 +71,10 @@ public class CadastroLancamentoBean implements Serializable{
 	
 	public TipoLancamento[] getTiposLancamentos() {
 		return TipoLancamento.values();
+	}
+	
+	public Lancamento getLancamento() {
+		return lancamento;
 	}
 	
 	public void setLancamento(Lancamento lancamento) {
